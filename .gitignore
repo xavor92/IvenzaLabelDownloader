@@ -286,3 +286,6 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# private settings values
+Settings_values.cs
