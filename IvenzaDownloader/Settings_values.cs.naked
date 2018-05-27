@@ -11,7 +11,8 @@ namespace ivenzaDownloader
             settings.User = "";
             settings.Passwort = "";
             settings.LoginPage = "/ivenza/j_security_check";
-            settings.DownloadTemplate = "/ivenza/servlet/ivenza/labels/productionItem-{0}/black-200.png";
+            settings.DownloadTemplate = "/ivenza/servlet/ivenza/labels/productionItem-{0}/black-200+0.png";
+            settings.DownloadTemplate_rotated = "/ivenza/servlet/ivenza/labels/productionItem-{0}/black-200+0.png";
             settings.URLBase = "https://istare.ivenza.net";
             settings.URLTest = "/ivenza/shop/personal/";
         }

@@ -12,6 +12,7 @@ namespace ivenzaDownloader
         public string URLTest { get; set; }
         public string LoginPage { get; set; }
         public string DownloadTemplate { get; set; }
+        public string DownloadTemplate_rotated { get; set; }
         public string InputFile {get;set;}
         public string OutputPath {get;set;}
     }

@@ -6,6 +6,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Drawing;
 
 namespace ivenzaDownloader
 {
@@ -44,7 +45,11 @@ namespace ivenzaDownloader
                     {
                         string imageUrl = settings.DownloadTemplate.Replace("{0}", imagesIds[i]);
                         string outputFile = Path.Combine(settings.OutputPath, imagesIds[i] + ".png");
+                        string outputFile_rotated = Path.Combine(settings.OutputPath, imagesIds[i] + "_r.png");
                         client.DownloadFile(imageUrl, outputFile);
+                        Image test = Image.FromFile(outputFile);
+                        test.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                        test.Save(outputFile_rotated);
                     }
                     catch (Exception ex)
                     {
