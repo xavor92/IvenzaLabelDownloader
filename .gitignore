@@ -288,4 +288,4 @@ __pycache__/
 *.xsd.cs
 
 # private settings values
-Settings_values.cs
+IvenzaDownloader/Settings_values.cs
