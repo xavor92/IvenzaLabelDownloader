@@ -6,6 +6,12 @@ namespace ivenzaDownloader
 {
     class Settings
     {
+        public object this[string propertyName]
+        {
+            get { return this.GetType().GetProperty(propertyName).GetValue(this, null); }
+            set { this.GetType().GetProperty(propertyName).SetValue(this, value, null); }
+        }
+
         public string User {get;set;}
         public string Passwort {get;set;}
         public string URLBase { get; set; }

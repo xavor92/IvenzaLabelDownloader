@@ -13,8 +13,7 @@ namespace ivenzaDownloader
     class Program
     {
         static void Main(string[] args)
-        {
-
+        { 
             if (args.Length == 0)
             {
                 Console.WriteLine();
@@ -26,7 +25,7 @@ namespace ivenzaDownloader
             {
                 Settings settings = new Settings();
 
-                PrivateSettings.LoadPrivateSettings(settings);
+                LoadParameterFromAppConfig(settings);
                 LoadParameterFromConsole(settings, args);
                 createOutputDirectoryIfNotPresent(settings.OutputPath);
 
@@ -109,6 +108,23 @@ namespace ivenzaDownloader
             settings.InputFile = settings.InputFile.Replace("\\", "\\\\");
             settings.OutputPath = settings.OutputPath.Replace("\\", "\\\\");
             settings.OutputPath = settings.OutputPath.Substring(0, settings.OutputPath.Length - 1);
+        }
+
+        private static void LoadParameterFromAppConfig(Settings settings)
+        {
+
+            var appSettings = ConfigurationManager.AppSettings;
+            if (appSettings.Count == 0)
+            {
+                Console.WriteLine("AppSettings is empty, please populate");
+                return;
+            }
+
+            foreach (var key in appSettings.AllKeys)
+            {
+                settings[key] = appSettings[key];
+            }
+
         }
 
         private static void createOutputDirectoryIfNotPresent(string path)
